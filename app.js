@@ -9,6 +9,8 @@ const numCpu = os.cpus().length;
 
 app.get("/", (req, res) => {
     res.send("Ok.... from process = " + process.pid)
+    // kill the process on to test fault tolerance
+    cluster.worker.kill();
 })
 
 // Check if this is master process
@@ -20,7 +22,7 @@ if(cluster.isMaster){
         cluster.fork();
     }
 
-    // keep forking a new proess on any of these worker process exists
+    // keep forking a new proess if any of these worker process exists; fault tolrant
     cluster.on('exit', (worker, code, signal) => {
         cluster.fork();
         console.log(`Worker ${worker.process.pid} died`)

@@ -110,6 +110,16 @@ To learn how to scale a system
             ```
 
 
+- [x] Forcefully kill process and see if the server still cope with the faults - Fault tolerence
+    - ```bash
+        Worker 56301 died
+        Server 56454 is started at 3000
+        Worker 56307 died
+        Server 56495 is started at 3000
+        Worker 56309 died
+        Server 56520 is started at 3000
+        Worker 56315 died
+     ```
 - [ ] Add a POST api which modifies a in-memory store
 - [ ] Load test again to see the values are properly being set and get
 
