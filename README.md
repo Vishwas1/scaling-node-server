@@ -51,7 +51,6 @@ To learn how to scale a system
                 100%     94 ms (longest request)
         ```
 - [x] Update the server to run in cluster with all 4 core
-    - 
         ```bash
                 [nodemon] starting `node app.js`
                 Server 52796 is started at 3000
