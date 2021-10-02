@@ -2,15 +2,43 @@ const express =  require("express");
 const process =  require("process");
 const cluster =  require("cluster");
 const os =  require("os");
+const { v4: uuid } = require('uuid');
 
 
 const app = express();
+app.use(express.json())
+
 const numCpu = os.cpus().length;
+
+// In-mem store
+const userMap = {};
+
+app.post("/user", (req, res) => {
+    const { name } = req.body;
+    const user = {
+        id: uuid(),
+        name,
+        pid: process.pid
+    }
+    userMap[user.id] = user;
+    res.send({
+        data:  userMap[user.id],
+        length: Object.keys(userMap).length
+    })
+})
+
+app.get("/user", (req, res) => {
+    res.send(userMap)
+})
+
+app.get("/user/:id", (req, res) => {
+    res.send(userMap[req.params.id])
+})
 
 app.get("/", (req, res) => {
     res.send("Ok.... from process = " + process.pid)
     // kill the process on to test fault tolerance
-    cluster.worker.kill();
+    // cluster.worker.kill();
 })
 
 // Check if this is master process
@@ -31,6 +59,9 @@ if(cluster.isMaster){
     // Else just run the server
     app.listen(3000, () => console.log(`Server ${process.pid} is started at 3000`))
 }
+
+// app.listen(3000, () => console.log(`Server ${process.pid} is started at 3000`))
+
 
 
 

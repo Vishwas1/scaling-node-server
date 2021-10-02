@@ -117,7 +117,8 @@ To learn how to scale a system
         Server 56520 is started at 3000
         Worker 56315 died
      ```
-- [ ] Add a POST api which modifies a in-memory store
+- [x] Add a POST api which modifies a in-memory store
+    - In-memory does not work, because all of these process will have different memory. 
 - [ ] Load test again to see the values are properly being set and get
 
 
