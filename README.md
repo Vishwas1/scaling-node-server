@@ -108,8 +108,6 @@ To learn how to scale a system
                    99%      82 ms
                   100%      106 ms (longest request)
             ```
-
-
 - [x] Forcefully kill process and see if the server still cope with the faults - Fault tolerence
     - ```bash
         Worker 56301 died
