@@ -49,7 +49,7 @@ To learn how to scale a system
                 95%      67 ms
                 99%      79 ms
                 100%     94 ms (longest request)
-        ```
+        ```    
 - [x] Update the server to run in cluster with all 4 core
     -  ```bash
                 [nodemon] starting `node app.js`
@@ -128,3 +128,21 @@ To learn how to scale a system
 npm i
 npm run start
 ```
+
+## Report
+
+> Surprise!
+
+
+
+
+| Item         | Single Core | 4 Core     |
+|--------------|-------------|------------|
+| Run 1        | 4.93908521 s / 2025 / 48.9 ms / 72 ms            | 5.342220699 s / 1872 / 53 ms / 80 ms           |  
+| Run 2        | 3.630118847 s / 2755 / 35.9 ms / 67 ms    | 4.534954364 s / 2205 / 45 ms / 71 ms       |
+
+
+
+Data in each cell are in the following order
+
+`Total time` / `Requests per second` / `Mean latency` / `95th percentile`
