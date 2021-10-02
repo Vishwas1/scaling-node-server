@@ -5,6 +5,11 @@ CPU: 4 cores
 RAM: 8GB
 ```
 
+### Test scenario
+
+- Node server running on single core  vs server running on multi core in cluster mode
+- 10000 requests with 100 concurrent users.
+
 
 ##
 
